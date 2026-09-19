@@ -1,0 +1,433 @@
+/* =========================================================
+   COLORS — change these and the whole site updates
+   ========================================================= */
+:root{
+  --ink:#1c1b19;      /* dark text / sidebar background */
+  --bone:#f1ecdf;     /* page background (cream) */
+  --olive:#57624c;    /* small labels */
+  --rust:#a8552e;     /* accent color (buttons, quotes) */
+  --gold:#c98f2b;     /* highlight / active menu item */
+  --mist:#c9c2ae;     /* thin lines / borders */
+  --field:#faf7ef;    /* form field background */
+  --error:#9b2c1a;    /* form error text */
+  --sidebar-w:240px;
+}
+
+*, *::before, *::after{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bone);
+  color:var(--ink);
+  font-family:'IBM Plex Sans', sans-serif;
+  line-height:1.6;
+}
+
+a{ color:inherit; }
+h1, h2, h3{ font-family:'Fraunces', serif; font-weight:500; margin:0; }
+
+a:focus-visible,
+button:focus-visible,
+.video-wrap:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:2px;
+}
+
+.skip-link{
+  position:absolute; left:-999px; top:0;
+  background:var(--gold); color:var(--ink); padding:.6em 1em; z-index:200;
+}
+.skip-link:focus{ left:1em; top:1em; }
+
+/* =========================================================
+   LAYOUT — sidebar on the left, page content on the right
+   ========================================================= */
+.app{
+  display:flex;
+  min-height:100vh;
+}
+
+.sidebar{
+  width:var(--sidebar-w);
+  flex-shrink:0;
+  background:var(--ink);
+  color:var(--mist);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:sticky;
+  top:0;
+  height:100vh;
+  padding:2rem 1.6rem;
+}
+
+.sidebar-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand{ text-decoration:none; display:block; }
+.brand .name{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:1.7rem;
+  color:var(--bone);
+}
+
+.divider{ height:1px; background:rgba(201,194,174,.25); margin:1.6rem 0; }
+
+.menu-toggle{ display:none; }
+
+nav.primary-nav ul{
+  list-style:none; margin:0; padding:0;
+  display:flex; flex-direction:column; gap:.2rem;
+}
+nav.primary-nav a{
+  display:block;
+  text-decoration:none;
+  padding:.6rem .7rem;
+  border-left:2px solid transparent;
+  color:var(--mist);
+}
+nav.primary-nav a:hover{ color:var(--bone); }
+nav.primary-nav a[aria-current="page"]{
+  color:var(--bone);
+  border-left-color:var(--gold);
+  background:rgba(201,143,43,.08);
+}
+
+.sidebar-foot{ font-size:.8rem; }
+.sidebar-foot .socials{ display:flex; gap:.8rem; margin-top:.6rem; }
+.sidebar-foot a{ text-decoration:none; color:var(--mist); }
+.sidebar-foot a:hover{ color:var(--gold); }
+
+.content{
+  flex:1;
+  min-width:0;
+  padding:4rem clamp(1.4rem, 5vw, 4.5rem);
+  max-width:900px;
+}
+.content:focus,
+.page-title:focus{ outline:none; }
+
+.eyebrow{
+  color:var(--rust);
+  font-style:italic;
+  font-family:'Fraunces', serif;
+  margin-bottom:.6rem;
+}
+
+.page-title{
+  font-size:clamp(2.1rem, 5vw, 3rem);
+  line-height:1.1;
+  margin-bottom:1.6rem;
+}
+
+.lede{ font-size:1.1rem; max-width:56ch; color:var(--ink); }
+.body-copy{ max-width:60ch; }
+.body-copy p{ margin:1.1em 0; }
+
+.page-foot{
+  margin-top:4rem;
+  padding-top:1.2rem;
+  border-top:1px solid var(--mist);
+  font-size:.8rem;
+  color:var(--olive);
+}
+
+/* =========================================================
+   ABOUT PAGE — round photo + text side by side
+   ========================================================= */
+.profile{
+  display:flex;
+  align-items:center;
+  gap:2.5rem;
+  flex-wrap:wrap;
+}
+
+.profile-photo{
+  width:200px;
+  height:200px;
+  border-radius:50%;   /* this is what makes it a circle */
+  object-fit:cover;    /* crops the photo instead of stretching it */
+  object-position:50% 8%; /* keeps the top of the head in the circle */
+  flex-shrink:0;
+  background:var(--mist); /* shows while the photo is loading */
+}
+
+.profile-text{
+  flex:1;
+  min-width:260px;
+  max-width:60ch;
+}
+
+/* =========================================================
+   PROJECTS PAGE — video cards, 1:1 square
+   ========================================================= */
+.project-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.2rem;
+  margin-top:2rem;
+}
+
+.project-card{ display:block; }
+
+/* The square frame. Always 1:1, no matter the video's own shape. */
+.video-wrap{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#000;      /* letterbox bars behind the video */
+  cursor:pointer;
+  overflow:hidden;
+}
+
+/* object-fit:contain keeps the video's real proportions —
+   it will NOT stretch to fill the square. */
+.video-wrap video{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+.play-hint{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  padding:.6rem .8rem;
+  font-size:.82rem;
+  color:#fff;
+  background:linear-gradient(transparent, rgba(0,0,0,.65));
+  pointer-events:none;
+}
+.video-wrap.playing .play-hint{ display:none; }
+
+.project-title{ margin-top:.9rem; font-size:1.1rem; }
+.project-desc{ margin:.3rem 0 0; font-size:.92rem; color:var(--olive); }
+
+/* =========================================================
+   CONTACT PAGE — simple list of links
+   ========================================================= */
+.contact-links{
+  margin-top:2rem;
+  max-width:480px;
+}
+
+.contact-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  text-decoration:none;
+  padding:1.1rem 0;
+  border-bottom:1px solid var(--mist);
+}
+.contact-link:first-child{ border-top:1px solid var(--mist); }
+
+.contact-label{
+  font-family:'Fraunces', serif;
+  font-size:1.15rem;
+}
+.contact-value{
+  font-size:.9rem;
+  color:var(--olive);
+}
+.contact-link:hover .contact-label{ color:var(--rust); }
+
+/* =========================================================
+   WORDS PAGE — pull quote + call-to-action buttons
+   ========================================================= */
+.pull{
+  font-family:'Fraunces', serif;
+  font-style:italic;
+  font-size:clamp(1.4rem, 3vw, 1.9rem);
+  line-height:1.35;
+  max-width:26ch;
+  margin:2rem 0;
+  padding-left:1.1rem;
+  border-left:3px solid var(--rust);
+}
+
+.cta-row{ margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; }
+
+.btn{
+  display:inline-block;
+  background:var(--ink);
+  color:var(--bone);
+  text-decoration:none;
+  padding:.8rem 1.4rem;
+  border:1px solid var(--ink);
+}
+.btn:hover{ background:var(--rust); border-color:var(--rust); }
+.btn.ghost{ background:transparent; color:var(--ink); }
+.btn.ghost:hover{ background:var(--ink); color:var(--bone); }
+
+/* =========================================================
+   HIRE PAGE — order form
+   ========================================================= */
+.order-form{
+  margin-top:2rem;
+  max-width:560px;
+}
+
+.field{
+  border:0;
+  padding:0;
+  min-width:0;
+  margin:0 0 1.6rem;
+}
+
+.field label,
+.field-label{
+  display:block;
+  font-weight:500;
+  margin-bottom:.45rem;
+  padding:0;
+}
+
+.hint{
+  font-weight:400;
+  color:var(--olive);
+  font-size:.85rem;
+}
+
+.order-form input[type="text"],
+.order-form input[type="email"],
+.order-form input[type="tel"],
+.order-form input[type="password"],
+.order-form input[type="date"],
+.order-form select,
+.order-form textarea{
+  width:100%;
+  padding:.75rem .85rem;
+  border:1px solid var(--mist);
+  border-radius:0;
+  background:var(--field);
+  color:var(--ink);
+  font:inherit;
+}
+
+.order-form textarea{ min-height:140px; resize:vertical; }
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus{
+  outline:2px solid var(--rust);
+  outline-offset:1px;
+  border-color:var(--ink);
+}
+
+/* radios + checkboxes */
+.choice-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.7rem 1.8rem;
+}
+.choice-list.stacked{ flex-direction:column; gap:.7rem; }
+.choice-list label{
+  display:inline-flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:400;
+  margin:0;
+  cursor:pointer;
+}
+.choice-list input{
+  width:1.1rem;
+  height:1.1rem;
+  margin:0;
+  accent-color:var(--rust);
+}
+
+/* password-style field with show / hide button */
+.secret-field{ position:relative; }
+.secret-field input{ padding-right:7rem; }
+.secret-toggle{
+  position:absolute;
+  top:50%;
+  right:.4rem;
+  transform:translateY(-50%);
+  background:none;
+  border:0;
+  padding:.4rem .6rem;
+  font:inherit;
+  font-size:.85rem;
+  color:var(--rust);
+  text-decoration:underline;
+  cursor:pointer;
+}
+.secret-toggle:hover{ color:var(--ink); }
+
+.field-error{
+  display:none;
+  color:var(--error);
+  font-size:.88rem;
+  margin:.5rem 0 0;
+}
+
+.order-form .btn{
+  width:100%;
+  font:inherit;
+  text-align:center;
+  cursor:pointer;
+}
+
+.form-note{
+  color:var(--olive);
+  font-size:.85rem;
+  margin:.8rem 0 0;
+}
+
+/* =========================================================
+   MOBILE — sidebar becomes a top bar with a menu button
+   ========================================================= */
+@media (max-width:780px){
+  .app{ flex-direction:column; }
+
+  .sidebar{
+    position:sticky; top:0; height:auto; width:100%;
+    flex-direction:row; align-items:center; justify-content:space-between;
+    padding:1rem 1.3rem;
+    z-index:100;
+  }
+  .sidebar-main{ flex:1; }
+  .divider, .sidebar-foot{ display:none; }
+
+  .menu-toggle{
+    display:inline-block;
+    position:relative;
+    z-index:1;            /* stays above the open menu panel so it can close it */
+    background:transparent;
+    color:var(--bone);
+    border:1px solid rgba(241,236,223,.4);
+    padding:.5rem .8rem;
+    cursor:pointer;
+    font-family:'IBM Plex Sans', sans-serif;
+  }
+
+  nav.primary-nav{
+    position:fixed; top:0; right:0;
+    width:min(78vw, 300px); height:100vh;
+    background:var(--ink);
+    padding:5rem 1.5rem 2rem;
+    transform:translateX(100%);
+    visibility:hidden;    /* closed menu links can't be tabbed to */
+    transition:transform .25s ease, visibility 0s linear .25s;
+  }
+  nav.primary-nav.open{
+    transform:translateX(0);
+    visibility:visible;
+    transition:transform .25s ease, visibility 0s;
+  }
+
+  .content{ padding:2.4rem 1.3rem 3rem; }
+
+  .project-grid{ grid-template-columns:1fr; }
+
+  .profile{ flex-direction:column; text-align:center; gap:1.4rem; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  nav.primary-nav,
+  nav.primary-nav.open{ transition:none; }
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's know each other</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- Tanpa JavaScript, semua halaman tetap tampil berurutan -->
+<noscript><style>.page[hidden]{ display:block; } .menu-toggle{ display:none; }</style></noscript>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="app">
+
+  <!-- ===================== SIDEBAR (selalu tampil di semua halaman) ===================== -->
+  <aside class="sidebar">
+    <div class="sidebar-main">
+      <div class="sidebar-top">
+        <a href="#about" class="brand"><span class="name">Naldi</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      </div>
+      <div class="divider"></div>
+      <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#words">Words</a></li>
+          <li><a href="#hire">Hire me here!</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-foot">
+      <span>Medan, Indonesia</span>
+    </div>
+  </aside>
+
+  <main class="content" id="main" tabindex="-1">
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="page" id="page-about">
+      <p class="eyebrow">Get To Know Me!</p>
+      <h1 class="page-title">About Me</h1>
+
+      <div class="profile">
+
+        <img src="my own profile.jpeg" alt="Photo of Naldi" class="profile-photo">
+
+        <div class="profile-text">
+          <!-- ✏️ EDIT HERE: write your own description below -->
+          <p>Hey there! I'm Rayhan Raynaldi or being known through the internet with two nicknames those are Naldi or Naldi Lana. I am a freelance video editor and graphic designer.</p>
+          <p>I study at University Of North Sumatera and taking English Literature as my major. Using my cultural sense and wide culture understanding, i can make several creations that are not only aesthetically pretty but also meaning full.</p>
+          <p>I can edit short and long form videos, banners, posters, and even being a voice actor for your videos. I can manage your social media by filling them with interesting video feeds to advertise your products or manage your contents as a freelance video editor. I am open for commisions and future collaborations.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="page" id="page-projects" hidden>
+      <p class="eyebrow">See My Mographs!</p>
+      <h1 class="page-title">My Projects</h1>
+      <p class="lede">Click any video to play it with sound.</p>
+
+      <div class="project-grid">
+
+        <!-- ===== CARD 1 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play Ballroom Floor Mograph with sound">
+            <!-- ✏️ EDIT HERE: change the video file name to your own video -->
+            <video muted loop playsinline preload="none">
+              <source src="video_1.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <!-- ✏️ EDIT HERE: change the title and description -->
+          <h3 class="project-title">Ballroom Floor Mograph</h3>
+          <p class="project-desc">Video is made by alight motion. It's a lyrics mograph of Neckdeep's song - December.</p>
+        </article>
+
+        <!-- ===== CARD 2 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play After Thought with sound">
+            <video muted loop playsinline preload="none">
+              <source src="video_3.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <h3 class="project-title">After Thought</h3>
+          <p class="project-desc">Typography video of After Thought song, using red and black theme to get the cool dark feeling.</p>
+        </article>
+
+        <!-- ===== CARD 3 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play Vietnamese Typography Video with sound">
+            <video muted loop playsinline preload="none">
+              <source src="video 7 thai.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <h3 class="project-title">Vietnamese Typography Video</h3>
+          <p class="project-desc">By matching every word by word, it is still possible to edit and match the lyrics, even it is not english.</p>
+        </article>
+
+        <!-- ===== CARD 4 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play Dark core with sound">
+            <video muted loop playsinline preload="none">
+              <source src="video_2.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <h3 class="project-title">Dark core</h3>
+          <p class="project-desc">If you understand the japanese words in the video, you could see it is asking us to be alive.</p>
+        </article>
+
+        <!-- ===== CARD 5 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play Rasool Allah with sound">
+            <video muted loop playsinline preload="none">
+              <source src="video 6 rasul.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <h3 class="project-title">Rasool Allah</h3>
+          <p class="project-desc">It's a short typography lyrics video of Haris J song - Rasool Allah with colorful lyrics style.</p>
+        </article>
+
+        <!-- ===== CARD 6 ===== -->
+        <article class="project-card">
+          <div class="video-wrap" role="button" tabindex="0" aria-label="Play Gojek Fake Ads with sound">
+            <video muted loop playsinline preload="none">
+              <source src="video_4.mp4" type="video/mp4">
+            </video>
+            <div class="play-hint">🔊 Tap to play with sound</div>
+          </div>
+          <h3 class="project-title">Gojek Fake Ads</h3>
+          <p class="project-desc">Made by alight motion, this is my first fake brand motion graphic. And soon there will be more, i will keep envolving.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="page" id="page-contact" hidden>
+      <p class="eyebrow">Connect with me</p>
+      <h1 class="page-title">Contact Me</h1>
+      <p class="lede">Reach out through any of these.</p>
+
+      <div class="contact-links">
+
+        <a href="https://wa.me/6283180101104" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">+62 831-8010-1104</span>
+        </a>
+
+        <a href="https://www.tiktok.com/@naldilana" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-label">TikTok</span>
+          <span class="contact-value">@naldilana</span>
+        </a>
+
+        <a href="https://www.instagram.com/naldilana_?igsi=dTQ2Ym9sdnY1NnFv" target="_blank" rel="noopener" class="contact-link">
+          <span class="contact-label">Instagram</span>
+          <span class="contact-value">@naldilana</span>
+        </a>
+
+        <a href="mailto:ryhangmg@gmail.com" class="contact-link">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">ryhangmg@gmail.com</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ===================== WORDS ===================== -->
+    <section class="page" id="page-words" hidden>
+      <p class="eyebrow">Words</p>
+      <h1 class="page-title">Why Work With Me</h1>
+
+      <div class="body-copy">
+        <p>Most design problems are actually reading problems. Somebody hasn't said, clearly enough, what they're offering and who it's for — and everything downstream, the layout, the colour, the tone, is trying to compensate for that gap. I start there before I start anywhere else.</p>
+      </div>
+
+      <blockquote class="pull">Good design doesn't decorate a message. It's the fastest way for the message to arrive.</blockquote>
+
+      <div class="body-copy">
+        <p>If you already have words but no shape for them, I'll build the shape. If you have a shape but the words feel thin, I'll write them. And if you have neither yet, that's fine too. Most projects start as a rough idea and a deadline, and that's enough for us to begin.</p>
+        <p>What you get isn't a template filled with your logo. It's a small number of deliberate choices, made specifically for what you're trying to say, and nothing left in just because it's expected.</p>
+      </div>
+
+      <div class="cta-row">
+        <a href="#hire" class="btn">Start a project</a>
+        <a href="#projects" class="btn ghost">See the work first</a>
+      </div>
+    </section>
+
+    <!-- ===================== HIRE (form pemesanan) ===================== -->
+    <section class="page" id="page-hire" lang="id" hidden>
+      <p class="eyebrow">Pesan jasa</p>
+      <h1 class="page-title">Form Pendaftaran Pemesan</h1>
+      <p class="lede">Isi data dirimu dan detail pesanan. Data akan dikirim ke WhatsApp Naldi.</p>
+
+      <form class="order-form" id="orderForm" novalidate>
+
+        <div class="field">
+          <label for="nama">Nama Lengkap:</label>
+          <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="contoh@email.com" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="wa">Nomor WhatsApp:</label>
+          <input type="tel" id="wa" name="wa" placeholder="Contoh: 08123456789" autocomplete="tel" required>
+        </div>
+
+        <div class="field">
+          <label for="kode">Kode Diskon: <span class="hint">(opsional)</span></label>
+          <div class="secret-field">
+            <input type="password" id="kode" name="kode" placeholder="Masukkan kode diskon" autocomplete="off" autocapitalize="off" spellcheck="false">
+            <button type="button" class="secret-toggle" id="toggleKode" aria-controls="kode" aria-label="Lihat kode diskon">Lihat</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="kota">Kota Asal:</label>
+          <select id="kota" name="kota" required>
+            <option value="">-- Pilih Kota --</option>
+            <option value="Medan">Medan</option>
+            <option value="Jakarta">Jakarta</option>
+            <option value="Bandung">Bandung</option>
+            <option value="Surabaya">Surabaya</option>
+            <option value="Yogyakarta">Yogyakarta</option>
+            <option value="Lainnya">Lainnya</option>
+          </select>
+        </div>
+
+        <fieldset class="field">
+          <legend class="field-label">Jenis Kelamin:</legend>
+          <div class="choice-list">
+            <label><input type="radio" name="gender" value="Laki-laki"> Laki-laki</label>
+            <label><input type="radio" name="gender" value="Perempuan"> Perempuan</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="field" id="layananGroup">
+          <legend class="field-label">Layanan yang Dipesan:</legend>
+          <div class="choice-list stacked">
+            <label><input type="checkbox" name="layanan" value="Video editing"> Video editing (short / long form)</label>
+            <label><input type="checkbox" name="layanan" value="Desain grafis"> Desain grafis (banner, poster)</label>
+            <label><input type="checkbox" name="layanan" value="Voice over"> Voice over</label>
+            <label><input type="checkbox" name="layanan" value="Pengelolaan media sosial"> Pengelolaan media sosial</label>
+          </div>
+          <p class="field-error" id="layananError" role="alert">Pilih minimal satu layanan.</p>
+        </fieldset>
+
+        <div class="field">
+          <label for="deadline">Target Selesai: <span class="hint">(opsional)</span></label>
+          <input type="date" id="deadline" name="deadline">
+        </div>
+
+        <div class="field">
+          <label for="detail">Detail Pesanan / Alamat:</label>
+          <textarea id="detail" name="detail" placeholder="Ceritakan kebutuhanmu: durasi, gaya, referensi, atau alamat jika diperlukan..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Kirim lewat WhatsApp</button>
+        <p class="form-note">Kamu akan diarahkan ke WhatsApp dengan pesan yang sudah terisi.</p>
+      </form>
+    </section>
+
+    <footer class="page-foot">&copy; 2026 Naldi.</footer>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
